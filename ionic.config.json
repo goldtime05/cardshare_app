@@ -1,0 +1,8 @@
+{
+  "name": "card-new",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}
