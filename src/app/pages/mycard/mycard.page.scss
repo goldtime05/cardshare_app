@@ -1,0 +1,138 @@
+.card{
+    width: 85%;
+    // height: 400px;
+    background: #fff;
+    border-radius: 34px;
+    margin: 0px auto;
+    box-shadow: 0 8px 6px -6px black;
+}
+.lab{
+    color: black;    
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5px;
+    text-align: center;
+}
+.namediv {
+
+    span{
+        position: relative;
+        font-size: 15px;
+        left: 2%;        
+        font-family:Tahoma, Geneva, sans-serif;
+    }
+}
+.lbl{
+    position: relative;
+    top: 4px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family:Tahoma, Geneva, sans-serif;
+}
+.lbl2{
+    position: relative;
+    top: 15px;
+    font-size: 13px;
+    color: gray;
+}
+.phot{
+    width: 100px;
+    border-radius: 10px;
+    height: 30px;
+    background: #ffa50033;
+    opacity: 0.6;
+    margin-top: 22px;
+    margin-bottom: 12px;
+    color: #ad7104;
+    text-align: center;
+    font-size: 13px;
+    line-height: 26px;
+}
+.phot2{
+    padding: 0px 12px;
+    border-radius: 10px;
+    height: 30px;
+    background: #b886f954;
+    opacity: 0.6;
+    margin-top: 22px;
+    margin-bottom: 12px;
+    color: #040896;
+    text-align: center;
+    font-size: 13px;
+    line-height: 26px;
+    font-weight: bold;
+}
+.nocard {
+    padding-top: 20%;
+}
+.cap{
+    font-size: 11px;
+    // margin-left: 37%;
+    color:#fcba7d;
+}
+.l{
+    margin-top:8px;
+}
+
+.header-md:after {
+    background-image: none;
+}
+ion-toolbar {
+    p{
+        margin: 0px;
+    }
+}
+.header-ios ion-toolbar:last-child, .header-md ion-toolbar:last-child {
+    --border-width: 0 0 0px;
+}
+ion-back-button {
+    position: absolute;    
+}
+.avatar-div {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #d2cdcd;
+    position: relative;
+    float: right;
+
+    ion-img {
+      width: 100%;
+      
+      img {
+        --width: 100px;
+        --height: 100px;        
+        --border-radius: 50%;
+        --border: 1px solid red;
+      }
+    }
+  }
+  .active[_ngcontent-uec-c1]::after {
+    display: none;
+}
+:host(:not([no-border]))::after {    
+    background-image: none !important;    
+}
+:host {  
+    --super-tabs-toolbar-background: #ffffff;
+    --st-indicator-color: #fcba7d;
+    --st-scrollable-toolbar-padding-left: 5px;
+    --st-label-color-active: #fcba7d;
+    --st-label-color-inactive: gray;
+    --st-label-text-transform: capitalize;
+    --st-label-font-size: 16px;
+    --st-icon-color-active: rgba(0,0,0,0.1);    
+    ::after {
+      display: none;      
+    }
+}
+super-tab-button {
+    width: 50%;
+}
+.collectable {
+    margin: 0;
+    text-align: center;
+    font-size: 12px;
+    color: red;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,104 @@
+<ion-header style="height: 92px;">
+  <ion-toolbar style="height: 92px;">
+    <ion-icon (click)="goback()" class="back" name="arrow-back" style="z-index: 10;padding-top: 24px;"></ion-icon>
+    <span (click)="goback()" style="padding-top: 24px;" class="back text-b">Back</span>
+    <ion-title style="padding-top: 28px;"class="ion-text-center">{{cardObj.sub_cat_name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="{{cardObj.image}}" style="width: 100%; height: 60%">
+
+  <ion-row>
+    <ion-col size="12" class="center" style="border-bottom-right-radius: 45px; border-bottom-left-radius: 45px; border-bottom: 1px solid #e2e0e0;
+          padding-bottom: 17px;">
+      <div class="trends"><img src="assets/img/f2.png"><span>{{cardObj.category_name}}</span></div>
+      <ion-label class="lbl">{{cardObj.sub_cat_name}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12" class="ion-text-center" style="padding-top: 15px;">
+      <div class="lbl2">Customize your card</div>
+      <div class="add">
+        Please select photos and video to send
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="center">
+      <img style="width:60px" [src]="image1">
+      <input class="file-input" type="file" name="imge1" #img1 (change)="changeListener($event, 'photo1')"
+        accept="image/*">
+    </ion-col>
+    <ion-col class="center">
+      <img style="width:60px" [src]="image2">
+      <input class="file-input" type="file" name="imge2" #img2 (change)="changeListener($event, 'photo2')"
+        accept="image/*">
+    </ion-col>
+    <ion-col class="center">
+      <img *ngIf="!selectedVideo" style="width:60px;height:70px" src="{{'assets/img/youtube.png'}}">
+      <video *ngIf="selectedVideo" src="{{selectedVideo}}" style="width:60px;height:70px" class="iframe"
+        controls></video>
+      <input class="file-input" type="file" name="video" #videos (change)="changeListener($event, 'video')"
+        accept="video/*">
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="margin-top:2%;">
+    <ion-col size="3" class="ion-align-item-center ion-align-self-center ion-text-right">
+      <!-- <div (click)="decrese()" class="rightt">-</div> -->
+      <ion-button class="rightt" (click)="decrese()" fill="clear">
+        <ion-icon name="remove-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+
+    <ion-col size="6" class="center gift-div ion-align-item-center ion-align-self-center">
+      <div syle="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Gift Money</div>
+      <ion-row>
+        <ion-col size="1">
+          <div class="ruppe">$</div>
+        </ion-col>
+        <ion-col size="7">
+          <ion-input id="amt" type="number" class="amnt" placeholder="0.00" (ionChange)="giftChange()"></ion-input>
+        </ion-col>
+        <ion-col size="4">
+          <div class="ruppe">AUD</div>
+        </ion-col>
+      </ion-row>
+      <!-- <div class="ruppe">$<ion-input id="amt" type="number" class="amnt" value="00" (ionChange)="giftChange()"></ion-input>AUD</div> -->
+    </ion-col>
+
+    <ion-col size="3" class="ion-align-item-center ion-align-self-center ion-text-left">
+      <!-- <div (click)="increase()" class="leftt">+</div> -->
+      <ion-button class="leftt" (click)="increase()" fill="clear">
+        <ion-icon name="add-circle-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="margin-top: 9%; margin-bottom: 21px;">
+    <ion-col size="12">
+      <ion-label style="margin-left: 8%; margin-top: 13px;">Add Text</ion-label>
+      <ion-input [(ngModel)]="msg" style="border-bottom:1px solid gray; width:90%; margin: 0px auto;" autocomplete="on" autocapitalize="sentences" type="text"></ion-input>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-footer style="margin-bottom: env(safe-area-inset-bottom);">
+  <ion-row>
+    <ion-col size="7" style="text-align:left; padding-left: 10px;">
+      <div class="ruppe tt">$<input style="background:none; color: black;" disabled id="totalamt" type="number"
+          class="amnt" value="{{price}}"> AUD</div>
+      <div class="lbl3" syle="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Including all taxes</div>
+    </ion-col>
+    <!-- <ion-col size="2"></ion-col> -->
+    <ion-col size="5" style="text-align:right">
+      <button (click)="buyNow()" class="bttn">
+        <ion-icon name="cart"></ion-icon>Buy card
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

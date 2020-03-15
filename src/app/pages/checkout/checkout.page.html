@@ -1,0 +1,263 @@
+<ion-header style="height: 92px;">
+  <ion-toolbar style="height: 92px;">
+    <ion-icon (click)="goto('summary')" class="back" name="arrow-back" style="z-index: 10;padding-top: 24px;"></ion-icon>
+    <span (click)="goto('summary')" style="padding-top: 24px;" class="back text-b">Back</span>
+    <ion-title style="padding-top: 28px;"class="ion-text-center">Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <!-- <div class="ion-padding ion-text-center">
+    <ion-icon (click)="goto('summary')" class="back" name="arrow-back" style="z-index: 10;"></ion-icon><span
+      (click)="goto('summary')" class="back text-b" style="z-index: 10;">Back</span>
+    <h4 class="ion-text-center">Checkout</h4>
+  </div> -->
+  <ion-content>
+  <ion-grid>
+
+    <ion-row style="margin-top: 4%;">
+      <ion-col size="12">
+        <ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged()">
+          <ion-segment-button value="0">
+            <ion-label>Credit Card</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="1">
+            <ion-label>PayPal</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+
+
+
+    <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+      <ion-slide>
+        <ion-list>
+          <ion-card class="welcome-card">
+            <ion-card-content>
+       
+
+              <form [formGroup]="cardform">
+
+                <ion-row>
+                  <ion-col size="12">
+                    <div class="unmae">Cardholder name</div>
+                    <ion-input formControlName="cardHolderName" [(ngModel)]="cardHolderName" class="inp inplong">
+                    </ion-input>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col size="12">
+                    <div class="unmae">Card number</div>
+                    <ion-input formControlName="card_number" [(ngModel)]="card_number" class="inp inplong"
+                      maxlength="16" (ionBlur)="checkCardNumber(this.card_number)"></ion-input>
+                  </ion-col>
+                  <span ion-text color="danger" class="error-span" style="padding-left: 25px;"
+                    *ngIf="(!cardform.controls['card_number'].valid) || cardform.get('card_number').hasError('maxlength')">Card
+                    number invalid</span>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col style="--padding-left:20px;" size="6" class="colpad">
+                    <div class="unmae left">MM/YY</div>
+                    <ion-input [(ngModel)]="mmyy" formControlName="mmyy" class="inp" maxlength="5"
+                      (ionBlur)="expiredFormat(mmyy)"></ion-input>
+                    <span ion-text color="danger" class="error-span"
+                      *ngIf="(!cardform.controls['mmyy'].valid)">Expire date
+                      invalid</span>
+                  </ion-col>
+
+                  <ion-col style="--padding-left:20px;" size="6" class="colpad">
+                    <div class="unmae left">CCV/CVV</div>
+                    <ion-input formControlName="cvv" [(ngModel)]="cvv" class="inp" maxlength="4" (ionBlur)="checkCvvNumber(this.cvv)">
+                    </ion-input>
+                    <span ion-text color="danger" class="error-span"
+                      *ngIf="(!cardform.controls['cvv'].valid) || cardform.get('cvv').hasError('maxlength')">CVV
+                      number invalid</span>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row style="margin-top: 10%;">
+                  <ion-col size="12" class="center">
+                    <label class="vvv">Payment breakdown</label>
+                  </ion-col>
+
+                  <ion-col size="12">
+                    <div class="paybox">
+                      <ion-row>
+                        <ion-col size="6">
+                          <div class="txt">Chosen Card<br>
+                          </div>
+                        </ion-col>
+                        <ion-col size="6" style="text-align:center">
+                          <div class="txt add">
+                            {{data.price | currency: '$'}}
+                          </div>
+                        </ion-col>
+                      </ion-row>
+
+                      <ion-row>
+                        <ion-col size="6">
+                          <div class="txt">
+                            Gift Money
+                          </div>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-center">
+                          <div class="txt add">
+                            {{data.gift | currency: '$'}}
+                          </div>
+                        </ion-col>
+                      </ion-row>
+
+                      <ion-row>
+                        <ion-col size="6" style="padding-top: 15px;">
+                          <div class="txt">
+                            Total
+                          </div>
+                        </ion-col>
+                        <ion-col size="6" style="padding-top: 15px;" class="center">
+                          <div class="edit">{{data.total_amt | currency: '$'}} AUD</div>
+                        </ion-col>
+                      </ion-row>
+                    </div>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row style="margin-top: 5%;">
+                  <ion-col size="12" class="center">
+                    <label class="vvv">Note</label>
+                    <div class="note">
+                      You agree to authorize the use of your credit<br>card for this deposit and future payments
+                    </div>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row style="margin-top: 2%;">
+                  <ion-col size="12">
+                    <button [disabled]="cardform.invalid" (click)="PayNow()" class="paybtn">Pay
+                      {{data.total_amt | currency: '$'}} AUD</button>
+                    <!-- <button type="submit" class="paybtn">Pay {{data.total_amt | currency: '$'}} AUD</button> -->
+                  </ion-col>
+                </ion-row>
+
+              </form>
+
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
+      </ion-slide>
+      <!--   paypal -->
+      <ion-slide>
+        <form [formGroup]="paypalForm">
+        <ion-list>
+          <ion-row style="margin-top: 5%; margin-bottom: 10%;">
+            <ion-col size="12">
+              <div class="unmae">Email address</div>
+              <ion-input type="email" formControlName="email" class="inp inplong" style="text-align: left;"></ion-input>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="ion-margin-top">
+            <ion-col size="12" class="center">
+              <label class="vvv">Payment breakdown</label>
+            </ion-col>
+
+            <ion-col size="12">
+              <div class="paybox">
+                <ion-row>
+                  <ion-col size="6">
+                    <div class="txt">Basic card<br>
+                      2020 Birthday Card
+                    </div>
+                  </ion-col>
+                  <ion-col size="6" style="text-align:center">
+                    <div class="txt add">
+                      {{data.price | currency: '$'}}
+                    </div>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col size="6">
+                    <div class="txt">
+                      Gift Money
+                    </div>
+                  </ion-col>
+                  <ion-col size="6" class="ion-text-center">
+                    <div class="txt add">
+                      {{data.gift | currency: '$'}}
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="6" style="padding-top: 15px;">
+                    <div class="txt">
+                      Total
+                    </div>
+                  </ion-col>
+                  <ion-col size="6" style="padding-top: 15px;" class="center">
+                    <div class="edit">{{data.total_amt | currency: '$'}} AUD</div>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row style="margin-top: 5%;">
+            <ion-col size="12" class="center">
+              <label class="vvv">Note</label>
+              <div class="note">
+                You agree to authorize the use of your credit<br>card for this deposit and future payments
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row style="margin-top: 3%;">
+            <ion-col size="12">
+              <button (click)="callPayPal()" [disabled]="paypalForm.invalid" class="paybtn">Pay {{data.total_amt | currency: '$'}} AUD</button>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+      </form>
+      </ion-slide>
+    </ion-slides>
+
+    <!-- <div [ngSwitch]="segment">
+      <ion-list *ngSwitchCase="'credit'">
+        <ion-row>
+          <ion-col size="12">
+            <div class="unmae">Cardholder name</div>
+            <ion-input [(ngModel)]="cardHolderName" class="inp inplong"></ion-input>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col size="12">
+            <div class="unmae">Card number</div>
+            <ion-input [(ngModel)]="card_number" class="inp inplong"></ion-input>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col style="--padding-left:20px;" size="6" class="colpad">
+            <div class="unmae left">MM/YY</div>
+            <ion-input [(ngModel)]="mmyy" class="inp" size="5"></ion-input>
+          </ion-col>
+          <ion-col style="--padding-left:20px;" size="6" class="colpad">
+            <div class="unmae left">CCV/CVV</div>
+            <ion-input [(ngModel)]="cvv" class="inp" size="4"></ion-input>
+          </ion-col>
+        </ion-row>  
+        
+      </ion-list>
+
+      
+
+      <ion-list *ngSwitchCase="'paypal'">        
+        
+      </ion-list>
+    </div> -->
+
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,177 @@
+<ion-header style="height: 92px;">
+  <ion-toolbar style="height: 92px;">
+    <ion-icon (click)="goBack()" class="back" name="arrow-back" style="z-index: 10;padding-top: 24px;"></ion-icon>
+    <span (click)="goBack()" style="padding-top: 24px;" class="back text-b">Back</span>
+    <ion-title style="padding-top: 28px;"class="ion-text-center">My Cards</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<super-tabs (tabChange)="onTabChange($event)">
+  <super-tabs-toolbar slot="top" scrollable>
+    <super-tab-button>
+      <ion-label>
+        Received Cards
+      </ion-label>
+    </super-tab-button>
+
+    <super-tab-button>
+      <ion-label>
+        Sent Cards
+      </ion-label>
+    </super-tab-button>
+  </super-tabs-toolbar>
+
+  <super-tabs-container style="padding-top: 10px;">
+    <super-tab>
+      <ion-content>
+        <div *ngIf="this.noCards" class="ion-text-center nocard">
+          There is no avaliable card now.
+        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <div class="card" style="margin-bottom: 5%" *ngFor="let card of myCards; let i = index;"
+                (click)="gotoReceivedCard(card, 'received')">
+                <ion-row>
+                  <img style="height:255px;width:100%" [src]="card.sub_category?.image">
+                </ion-row>
+                <ion-row style="margin-top: 3%;">
+                  <ion-col size="5" class="right">
+                    <ion-avatar class="ion-text-center avatar-div">
+                      <ion-img class="img" [src]="card.user?.image ? card.user.image : 'assets/img/Profile.png'"></ion-img>
+                    </ion-avatar>
+                  </ion-col>
+                  <ion-col size="7" class="ion-align-self-center ion-align-items-center">
+                    <div class="namediv">
+                      <span>{{card.user?.first_name}} {{card.user?.last_name}}</span>
+                    </div>
+                  </ion-col>
+                  <ion-col size="12" class="center">
+                    <ion-label class="lbl">{{card.message}}</ion-label>
+                    <div class="lbl2">on {{getDate(card.date_time)}}</div>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="6" class="center">
+                    <button *ngIf="this.checkMedia(card)" class="phot">Photos/Videos</button>
+                  </ion-col>
+                  <ion-col size="6" class="center">
+                    <button class="phot2">{{card.gift_amount | currency:'$'}} AUD</button>
+                  </ion-col>
+                </ion-row>
+
+                <p *ngIf="card.payment_status == 'Pending'" class="collectable">Collectable Gift</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </super-tab>
+
+    <super-tab>
+      <ion-content>
+        <div *ngIf="this.noCards" class="ion-text-center nocard">
+          There is no avaliable card now.
+        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <div class="card" style="margin-bottom: 5%" *ngFor="let card of myCards; let i = index;" (click)="gotoReceivedCard(card, 'sent')">
+                <ion-row>
+                  <img style="height:255px;width:100%" [src]="card.sub_category?.image">
+                </ion-row>
+                <ion-row style="margin-top: 3%;">
+                  <ion-col size="5" class="right">
+                    <ion-avatar class="ion-text-center avatar-div">
+                      <ion-img class="img" [src]="card.user?.image ? card.user.image : 'assets/img/Profile.png'"></ion-img>
+                    </ion-avatar>
+                  </ion-col>
+                  <ion-col size="7" class="ion-align-self-center ion-align-items-center">
+                    <div class="namediv">
+                      <span>{{card.user?.first_name}} {{card.user?.last_name}}</span>
+                    </div>
+                  </ion-col>
+                  <ion-col size="12" class="center">
+                    <ion-label class="lbl">{{card.message}}</ion-label>
+                    <div class="lbl2">on {{getDate(card.date_time)}}</div>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="6" class="center">
+                    <button *ngIf="this.checkMedia(card)" class="phot">Photos/Videos</button>
+                  </ion-col>
+                  <ion-col size="6" class="center">
+                    <button class="phot2">{{card.gift_amount | currency:'$'}} AUD</button>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </super-tab>    
+  </super-tabs-container>
+</super-tabs>
+
+<!-- <ion-content>
+
+  <div class="ion-padding ion-text-center">
+    <ion-icon (click)="goBack()" class="back" name="arrow-back" style="z-index: 10;"></ion-icon><span (click)="goBack()"
+      class="back text-b" style="z-index: 10;">Back</span>
+    <h4 class="ion-text-center">My Cards</h4>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="card" style="margin-bottom: 5%" *ngFor="let card of myCards; let i = index;"
+          (click)="gotoReceivedCard(card)">
+          <ion-row>
+            <img style="height:255px;width:100%" [src]="card.sub_category?.image">
+          </ion-row>
+          <ion-row style="margin-top: 3%;">
+            <ion-col size="5" class="right">
+              <ion-avatar class="ion-text-center avatar-div">
+                <ion-img class="img" [src]="card.user?.image ? card.user.image : 'assets/img/Profile.png'"></ion-img>
+              </ion-avatar>
+            </ion-col>
+            <ion-col size="7" class="ion-align-self-center ion-align-items-center">
+              <div class="namediv">
+                <span>{{card.user?.first_name}} {{card.user?.last_name}}</span>
+              </div>
+            </ion-col>
+            <ion-col size="12" class="center">
+              <ion-label class="lbl">{{card.message}}</ion-label>
+              <div class="lbl2">on {{getDate(card.date_time)}}</div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="6" class="center">
+              <button class="phot">Photos/Videos</button>
+            </ion-col>
+            <ion-col size="6" class="center">
+              <button class="phot2">{{card.gift_amount | currency:'$'}} AUD</button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
+
+<ion-footer style="margin-bottom: env(safe-area-inset-bottom);">
+  <ion-row>
+    <ion-col size="4" class="center">
+      <img class="k l" (click)="goto('main')" src="assets/img/Home.png">
+    </ion-col>
+
+    <ion-col size="4" class="center">
+      <img class="k " (click)="goto('mycard')" src="assets/img/g1.png">
+      <div class="cap">cards</div>
+    </ion-col>
+
+    <ion-col size="4" class="center">
+      <img class="k l" (click)="goto('profile')" src="assets/img/Profile.png">
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,34 @@
+<ion-content>
+
+  <ion-grid class="search-item">
+    <ion-row>
+      <ion-col size="12" class="ion-padding-left">
+        <ion-icon class="glassimg" name="search"></ion-icon>
+        <ion-input [(ngModel)]="searchBar" (ionChange)="getItems(searchBar)" placeholder="Search" class="inmp">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list no-lines>
+    <!-- <ion-list-header no-lines class="ion-padding-top">
+      <ion-label>
+          Contacts List
+      </ion-label>
+    </ion-list-header>  -->
+
+    <ion-item *ngFor="let contact of contacts" (click)="getPhone(contact.phone)" fill="clear" color="light" style="width: 100%;">
+      <ion-item lines="none" fill="clear" color="light" style="width: 100%;">
+        <ion-label class="ion-text-wrap">
+          {{ contact.name }} : {{contact.phone}}
+        </ion-label>
+        <ion-icon name="checkmark" slot="end" item-end *ngIf='contact.phone == this.api.contactPhoneNumber'></ion-icon>
+      </ion-item>      
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer style="margin-bottom: env(safe-area-inset-bottom);" class="ion-padding ion-text-center">
+  <ion-button fill="round" (click)="dismissModal()">Close</ion-button>
+</ion-footer>

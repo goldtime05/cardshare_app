@@ -1,0 +1,97 @@
+<!-- <ion-header>
+  <ion-toolbar>    
+    <ion-icon (click)="goBack()" class="back" name="arrow-back" style="z-index: 10;"></ion-icon><span (click)="goBack()" class="back text-b" style="z-index: 10;">Back</span>
+    <ion-title class="ion-text-center">
+      Edit Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <div class="ion-padding ion-text-center">
+    <ion-icon (click)="goBack()" class="back" name="arrow-back" style="z-index: 10;"></ion-icon><span (click)="goBack()" class="back text-b" style="z-index: 10;">Back</span>
+    <h4 class="ion-text-center">Edit Profile</h4>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="center">
+        <!-- <img class="proj" src="{{resPath ? resPath : 'assets/img/default.png'}}"> -->
+        <!-- <input class="proj" type="file" name="profile" #profileImage  (change)="changeListener($event,1)" accept="image/*" > -->
+        <ion-avatar class="ion-text-center avatar-div">
+          <ion-img class="img" [src]="this.imageSrc"></ion-img>
+        </ion-avatar>
+        <!-- <br> -->
+        <button class="profbtn">Change Profile Picture</button>
+        <input class="file-input" type="file" name="profile" #profileImage  (change)="changeListener($event)" accept="image/*" >
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6" class="colpad">
+        <div class="unmae">First name</div>
+        <ion-input [(ngModel)]="fname" class="inp"></ion-input>
+      </ion-col>
+      <ion-col size="6" class="colpad">
+        <div class="unmae">Last name</div>
+        <ion-input [(ngModel)]="lname" class="inp"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <div class="unmae">Email address</div>
+        <ion-input [(ngModel)]="email" class="inp inplong"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <div class="unmae">Phone number</div>
+        <ion-input [(ngModel)]="pnumber" class="inp inplong"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-row>
+      <ion-col size="3">
+        <div class="unmae">Code</div>
+        <ion-input type="number" [(ngModel)]="pregion" class="inp inplong"></ion-input>
+      </ion-col>
+      <ion-col size="9">
+        <div class="unmae">Phone number</div>
+        <ion-input type="number" [(ngModel)]="pnumber" class="inp inplong"></ion-input>
+      </ion-col>
+    </ion-row> -->
+
+    <ion-row>
+      <ion-col size="12" (click)="selectDate()">
+        <div class="unmae">Birthday</div>
+        <!-- <ion-input [(ngModel)]="birthday" class="inp inplong"></ion-input> -->
+        <!-- <ion-datetime [(ngModel)]="dob" class="inp inplong" displayFormat="DD MMMM YYYY"></ion-datetime> -->
+        <ion-input type="text" placeholder="Select your birthday" readonly [(ngModel)]="dob"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <div class="unmae">Gender</div>
+      <ion-col size="12" class="center">
+        <label class="switch">
+          <span class="male" [ngClass]="gender == 'male' ? 'male-checked' : 'none'" (click)="maleChecked()">Male</span>
+          <span class="female" [ngClass]="gender == 'female' ? 'female-checked' : 'none'" (click)="femaleChecked()">Female</span>
+          <!-- <input [checked]="checkg"
+            (change)="toggleEditable($event)" type="checkbox" />
+          <div id="abc">Male</div> -->
+        </label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top: 2%;">
+      <ion-col size="12" class="center">
+        <ion-button (click)="upload()" class="bttn">Save Changes</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

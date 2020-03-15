@@ -1,0 +1,111 @@
+<!-- <div class="outer-div">
+  <div class="inner-div">
+    {{this.giftAmount | currency:'$'}} AUD
+  </div>
+  <ion-button fill="clear" class="collect-but" (click)="showCollection(this.giftAmount)">
+    <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+    Collect Money
+  </ion-button>
+</div> -->
+
+<ion-content class="ion-padding-top">
+  <div class="outer">
+    <div class="innerdiv">
+      <img class="topimg" [src]="safeUrl ? safeUrl : ''">
+      <div class="ruppe2">{{userData.first_name}} {{userData.last_name}}</div>
+      <!-- <div class="ruppe2">Marpues Brownlee</div> -->
+      <ion-label class="graytxt">{{userData.email}}</ion-label><br>
+      <!-- <ion-label class="graytxt">akamkbhb@emailaddress.com</ion-label><br> -->
+      <button class="editbtn" (click)="goto('edit-profile')">Edit Profile</button>
+    </div>
+
+    <ion-label style="color:#fff; font-size: 13px; position: relative; top: 10px;">Received gift amount</ion-label>
+
+    <div class="ruppe" (click)="showCollection(this.giftAmount)">{{this.giftAmount | currency:'$'}} AUD</div>
+    <ion-icon name="arrow-forward" (click)="showCollection(this.giftAmount)"
+      style="color: #fff; position: relative; top: -34px; right: 34px; font-size: 25px; float: right;"></ion-icon>
+
+  </div>
+
+  <ion-row style="padding: 16px; width: 100%;">
+    <ion-col style="padding-right: 15px; height: 60px; padding-top: 10px; border-bottom: 1px solid #d4d1d1;" no-padding
+      size="12">
+      <div (click)="openBrowser('http://getgala.com.au/privacy_policy.html')">
+        <ion-label class="sublbl">Privacy Policy</ion-label>
+        <div class="sub_head">Read our privacy ploicy</div>
+        <ion-icon class="myicon" name="arrow-forward"></ion-icon>
+      </div>
+    </ion-col>
+
+    <ion-col style="padding-right: 15px; height: 60px; padding-top: 10px; border-bottom: 1px solid #d4d1d1;" no-padding
+      size="12">
+      <div (click)="openPdf('http://getgala.com.au/gala-tac.pdf')">
+        <ion-label class="sublbl">Terms and conditions</ion-label>
+        <div class="sub_head">Read our terms and conditions</div>
+        <ion-icon class="myicon" name="arrow-forward"></ion-icon>
+      </div>
+    </ion-col>
+
+    <ion-col style="padding-right: 15px; height: 60px; padding-top: 10px; border-bottom: 1px solid #d4d1d1;" no-padding
+      size="12">
+      <div (click)="sendContact()">
+        <ion-label class="sublbl">Contact support</ion-label>
+        <div class="sub_head">We are ready to assist you</div>
+        <ion-icon class="myicon" name="arrow-forward"></ion-icon>
+      </div>
+    </ion-col>
+
+    <ion-col size="12" class="center">
+      <button (click)="logout()" class="logout_bbtn">Logout</button>
+    </ion-col>
+    <!-- <ion-col size="12">
+        <div>
+          <ion-label style="font-family:Verdana, Geneva, sans-serif;font-size:20px;margin-left: 24px;">Terms and conditions</ion-label>
+          <div style="margin-left: 24px;font-size: 14px;">Read our terms and conditions</div>
+          <ion-icon name="arrow-forward" style="color: #000;
+          position: relative;
+          top: -34px;
+          float: right;
+          font-size: 30px;"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+          <div>
+            <ion-label style="font-family:Verdana, Geneva, sans-serif;font-size:20px;margin-left: 24px;">Contact support</ion-label>
+            <div style="margin-left: 24px;font-size: 14px;">We are ready to assist you</div>
+            <ion-icon name="arrow-forward" style="color: #000;
+            position: relative;
+            top: -34px;
+            float: right;
+            font-size: 30px;"></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+            <div>
+              <ion-label style="font-family:Verdana, Geneva, sans-serif;font-size:20px;margin-left: 24px;">FAQ's </ion-label>
+              <div style="margin-left: 24px;font-size: 14px;">frequently asked questions</div>
+              <ion-icon name="arrow-forward" style="color: #000;
+              position: relative;
+              top: -34px;
+              float: right;
+              font-size: 30px;"></ion-icon>
+            </div>
+          </ion-col> -->
+  </ion-row>
+</ion-content>
+
+<ion-footer style="margin-bottom: env(safe-area-inset-top);">
+  <ion-row>
+    <ion-col size="4" class="center">
+      <img class="k l" (click)="gotoRoot('main')" src="assets/img/Home.png">
+
+    </ion-col>
+    <ion-col size="4" class="center">
+      <img class="k l" (click)="gotoRoot('mycard')" src="assets/img/Group.png">
+    </ion-col>
+    <ion-col size="4" class="center">
+      <img class="k " (click)="gotoRoot('profile')" src="assets/img/p2.png">
+      <div class="cap">Profile</div>
+    </ion-col>
+  </ion-row>
+</ion-footer>

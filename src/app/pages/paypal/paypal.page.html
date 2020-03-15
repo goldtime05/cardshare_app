@@ -1,0 +1,12 @@
+<ion-content class="ion-padding">
+  <div class="ion-padding center">
+    <ion-img src="assets/img/Tick.png"></ion-img>
+
+    <h4>Payment successful</h4>
+
+    <p *ngIf="receiveUser">Your gift has delivered to {{userName}}</p>
+    <p *ngIf="!receiveUser">Your gift has delivered to the phone number : {{emailInfo}}</p>
+
+    <ion-button (click)="goBackHome()">Back to Home</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,69 @@
+<ion-content>
+  <div class="ion-padding ion-text-center">
+    <ion-icon (click)="goBack()" class="back" name="arrow-back" style="z-index: 10;"></ion-icon><span (click)="goBack()"
+      class="back text-b" style="z-index: 10;">Back</span>
+    <h3 class="ion-text-center">Bank Info</h3>
+  </div>
+
+  <div class="ion-padding-left ion-padding-right ion-padding-bottom">
+    <form [formGroup]="bankform">
+      <h4>Provide your bank info</h4>
+
+      <ion-list style="margin-bottom: 16px;">
+        <ion-row>
+          <ion-col size="12">
+            <div class="unmae">Bank Name:</div>
+            <ion-input formControlName="bank_name" class="inp inplong"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <div class="unmae">BSB:</div>
+            <ion-input formControlName="bsb" class="inp inplong"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <div class="unmae">Account number:</div>
+            <ion-input formControlName="account_number" class="inp inplong"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+
+      <h4>Provide your account details</h4>
+
+      <ion-list>
+        <ion-row>
+          <ion-col size="12">
+            <div class="unmae">Account Name:</div>
+            <ion-input formControlName="account_name" class="inp inplong"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <div class="unmae">Address line:</div>
+            <ion-input formControlName="address" class="inp inplong"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <div class="unmae">Country:</div>
+            <ion-input formControlName="country" class="inp inplong"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="margin-top: 10%;">
+          <ion-col size="12" class="ion-text-center">
+            <ion-button [disabled]="bankform.invalid" (click)="previewEmail(bankform.value)" class="btn" size="small">
+              Collect {{params | currency:'$'}} AUD
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

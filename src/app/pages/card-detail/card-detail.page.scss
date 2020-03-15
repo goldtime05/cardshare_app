@@ -1,0 +1,115 @@
+.trends{
+    width: 106px;
+    height: 26px;
+    background: #000;
+    border-radius: 10px;
+    color: #fff;    
+    font-size: 13px;
+    margin: 5% auto 2%;
+    span{
+        position: relative;
+        left: 0px;
+        bottom: 6px;
+    }
+    img{
+        position: relative;
+    }
+}
+
+.lbl{
+    font-weight: bold;
+    font-size: 22px;
+    font-family:Tahoma, Geneva, sans-serif;
+}
+
+.lbl2{    
+    font-size: 16px;
+    color: #c35757;
+    font-family:"Courier New", Courier, monospace;    
+}
+.lbl3{
+    font-size: 13px;
+    color: gray;
+}
+.add{    
+    text-transform: none;
+    border-radius: 4px;
+    padding: 5px;
+    border-bottom: 1px solid #d8d6d6;
+    width: 75%;
+    font-size: 13px;
+    margin: 16px auto 5px;
+    color: gray;
+}
+.rightt{
+    // width: 35px;
+    // height: 35px;
+    // background: #f4f4f4;
+    // border-radius: 50%;
+    // float: right;
+    // text-align: center;
+    // font-size: 45px;
+    // line-height: 28px;
+    color: gray;
+}
+.leftt{
+    // width: 35px;
+    // height: 35px;
+    // background: #f4f4f4;
+    // border-radius: 50%;
+    // float: left;
+    // text-align: center;
+    // font-size: 30px;
+    // line-height: 28px;
+    color: gray;
+}
+.ruppe{
+    font-weight:bold;
+    font-size:20px;
+    color:#fcba7d;
+    padding-top: 8px;
+}
+.tt{
+    color:#000;
+}
+.bttn{
+    width: 113px;
+    height: 40px;
+    background: #fcba7d;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+}
+.amnt{
+    width: 85px;
+    padding: 0px;
+    border: none;
+    //padding-left: 5px;
+    text-align:center;
+}
+.amnt:focus{
+    outline:none;
+}
+ion-footer {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.gift-div {
+    ion-row, ion-col {
+        padding: 0px;
+    }
+    ion-input {
+        font-weight:bold;
+        font-size:20px;
+        color:#fcba7d;
+        width: 100% !important;
+    }
+}
+
+.file-input {    
+    position: absolute;
+    margin: 2% auto;
+    right: 34%;    
+    opacity: 0;
+    width: 30%;
+  }

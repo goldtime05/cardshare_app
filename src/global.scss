@@ -1,0 +1,121 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+.yourFooterClass {
+  margin-bottom: constant(safe-area-inset-bottom);
+  margin-bottom: env(safe-area-inset-bottom);
+}
+
+ion-back-button {
+  position: absolute;
+  font-size: 100%;
+}
+ion-icon.sc-ion-back-button-md, ion-icon.sc-ion-back-button-ios {
+  font-size: 25px;
+}
+.button-text.sc-ion-back-button-md, .button-text.sc-ion-back-button-ios {
+  font-size: 20px;
+}
+.header-md:after, .header-ios:after {
+  background-image: none;
+}
+.header-ios ion-toolbar:last-child, .header-md ion-toolbar:last-child {
+  --border-width: 0 0 0px;
+  padding-top: 28px;
+  // margin-top: env(safe-area-inset-top);
+}
+
+.ios ion-footer .toolbar:last-child {
+  padding-bottom: calc(constant(safe-area-inset-bottom) + 4px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
+}
+
+.ios.platform-mobile ion-menu.menu-enabled .ios.platform-mobile ion-menu.menu-enabled .ios.platform-mobile ion-modal.show-page {
+    margin-top: constant(safe-area-inset-top); // for ios 11.1
+    margin-top: env(safe-area-inset-top); // for ios 11.2 and onwards
+    margin-bottom: env(safe-area-inset-bottom);
+    height: calc(100% - constant(safe-area-inset-top));
+    height: calc(100% - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+}
+
+.back{
+  position: absolute;
+  top: 5%;
+  color: #000;
+  font-size: 22px;    
+  left: 10px;
+  z-index: 10;
+}
+.text-b{
+  left: 30px;
+  font-size: 18px;
+  //top: 14px;
+}
+
+ion-alert {  
+  &.alert-danger {
+    .alert-head {
+      background: green;
+      color: #fff;
+      margin-bottom: 10px;
+      display: none;
+    }
+  }
+  .alert-wrapper.sc-ion-alert-ios, .alert-wrapper.sc-ion-alert-md {
+    border-radius: 25px;    
+    box-shadow: none;
+    overflow: hidden;
+    background: white;
+  }
+  .alert-message.sc-ion-alert-ios, .alert-message.sc-ion-alert-md {
+    padding: 0px 0px 0px 0px;
+    text-align: center;
+  }
+  .alert-button.sc-ion-alert-ios, .alert-button.sc-ion-alert-md {
+    border-top: none;
+    font-size: 14px;
+    margin: 0px auto;
+    text-transform: none;
+  }
+  h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 24px;
+    padding: 21px 0px;
+    background: #5162f5;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+  }
+  h4 {
+    padding: 5px 16px;
+    color: black;
+    font-size: 15px;
+    text-align: center;
+  }
+}

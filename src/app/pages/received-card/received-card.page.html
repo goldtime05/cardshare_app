@@ -1,0 +1,67 @@
+<ion-content>
+  <ion-icon (click)="goback()" class="back" name="arrow-back"></ion-icon><span (click)="goback()" class="back text-b">Back</span>
+  
+  <div class="whitebox namediv">
+    <img class="imh" [src]="receiveCard.sub_category?.image ? receiveCard.sub_category.image : 'assets/img/Group 104.png'">
+    <ion-row style="padding: 14px 0px 17px;">
+      <ion-col size="12" class="center">
+        <div class="lbl2">on {{getDate(receiveCard.date_time)}}</div>
+        <ion-label class="lbl">{{receiveCard.message}}</ion-label>
+        <!-- <div class="from-div">
+          <ion-img class="proinm" src="assets/img/Profile.png"></ion-img><span>from Samantha Jophsan</span>
+        </div> -->
+        <ion-row style="margin-top: 3%;">
+          <ion-col size="4" class="right">
+            <ion-avatar class="ion-text-center avatar-div">
+              <ion-img class="img" [src]="receiveCard.user?.image ? receiveCard.user.image : 'assets/img/Profile.png'"></ion-img>
+            </ion-avatar>                            
+          </ion-col>
+          <ion-col size="8" class="ion-align-self-center ion-align-items-center ion-text-left">
+            <div class="namediv">
+              <span *ngIf="this.kind == 'received'">from {{receiveCard.user?.first_name}} {{receiveCard.user?.last_name}}</span>
+              <span *ngIf="this.kind != 'received'">to {{receiveCard.user?.first_name}} {{receiveCard.user?.last_name}}</span>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-row style="margin-top: 8%;" class="center">
+    <ion-col size="12">
+      <div class="vvv" *ngIf="this.kind == 'received'">You received</div>
+      <div class="vvv" *ngIf="this.kind != 'received'">You sent</div>
+      <label class="switch">
+        <span class="male" *ngIf="this.kind == 'received'">You received</span>
+        <span class="male" *ngIf="this.kind != 'received'">You sent</span>
+        <span class="female">{{receiveCard.gift_amount | currency:'$'}} AUD</span>
+        <input checked type="checkbox" />
+      </label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="margin-top: 2%;">
+    <ion-col size="12" class="ion-padding">
+      <div class="msg-div" *ngIf="this.kind == 'received'">Message from {{receiveCard.user?.first_name}}</div>
+      <div class="msg-div" *ngIf="this.kind != 'received'">Message to {{receiveCard.user?.first_name}}</div>
+      <div class="msgbox">{{receiveCard.message}}</div>
+    </ion-col>
+  </ion-row>
+
+  <div class="ion-padding">
+    <div class="msg-div">Photos and videos</div>
+    <ion-slides [options]="sliderConfig" style="height: 130px;">
+      <ion-slide *ngFor="let item of photos; let i = index">
+        <ion-img *ngIf="item.image" [src]="item.image" style="width: 90% !important;" ionImgViewer></ion-img>
+        <video *ngIf="item.video" [src]="item.video" style="width: 90% !important;" (click)="videoView(item.video)"></video>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div *ngIf="this.kind == 'received' && photos.length != 0" class="ion-padding center">
+    <ion-button (click)="downloadFiles()">
+      <ion-icon slot="start" name="download"></ion-icon>
+      Download All
+    </ion-button>
+  </div>
+</ion-content>

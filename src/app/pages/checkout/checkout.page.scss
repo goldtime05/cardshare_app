@@ -1,0 +1,135 @@
+.switch input {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  /**
+   * 1. Adjust this to size
+   */
+  
+  .switch {
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    height: 2.5em;
+    width: 16em;
+    position:absolute;
+    border: 1px solid gray;
+    border-radius: 12em;
+    margin-left: 9px;
+
+  }
+  .txt{
+    font-size: 13px;
+    margin-left: 10%;
+    margin-top: 8px;
+    text-align: left;
+}
+ion-col {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.add{
+    font-size: 15px;
+    font-weight: bold;
+    color: gray;
+    text-align: center !important;
+}
+.price{
+    margin-top: 13px;
+}
+  .edit{
+    font-size:22px;
+    font-weight:bold;
+    font-family:Tahoma, Geneva, sans-serif;
+    margin-top: -5px;
+}
+.inp{
+    border-bottom:2px solid #ededed;
+    margin-top: 2px;
+    width:90%;
+    margin-left: 5%;
+    --padding-bottom:2px !important;
+}
+.unmae{
+    font-size: 14px;
+    margin-top: 3%;
+    margin-left: 6%;
+    text-align: left;
+}
+.inplong{
+    width:90%;
+}
+.left{
+    margin-left: 14%;
+}
+.vvv{
+    font-weight: bold;    
+    margin-top: -19px;
+    font-size: 17px;
+    color: black;
+}
+.error-span {  
+  font-size: 12px;
+  color: red;
+}
+.paybox{
+  width: 95%;
+  margin-left: 2.5%;
+  border: 3px solid #f3f3f3;
+  border-radius: 20px;
+  padding: 10px 0px;
+  color: black;
+}
+.note{
+    color: gray;
+    margin-top: 10px;
+    font-size: 13px;
+    font-family: Tahoma, Geneva, sans-serif;
+
+}
+.paybtn{
+    background: #5162f5;
+    width: 80%;
+    height: 40px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    margin-top: 11px;
+}
+ion-segment {
+  border: 1px solid #e6e2e2;
+  border-radius: 27px;  
+}
+ion-segment-button {
+  text-transform: none;
+  font-size: 15px;
+  font-weight: bold;  
+  border-radius: 25px;
+  --border-color: white;
+  width: 50%;
+}
+.segment-button-checked {
+  background: #fcba7d;
+  --color-checked: #fcba7d;
+  color: white;
+}
+
+.welcome-card {
+  margin: 0px;
+  // box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  box-shadow: none;
+  .form-row {
+    padding: 0px 10px 10px;
+    border-bottom: 1px solid #d4d2d2;
+    margin: 1px 16px;
+  }
+  ion-input {
+    text-align: left;
+  }
+}
+ion-card-content {
+  padding: 0px;
+}

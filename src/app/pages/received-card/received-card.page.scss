@@ -1,0 +1,144 @@
+.edit{
+    font-size:24px;
+    font-weight:bold;
+    font-family:Tahoma, Geneva, sans-serif;
+    margin-top: -5px;
+}
+.whitebox{
+    width: 100%;
+    // height: 66%;
+    border-radius: 40px;
+    box-shadow: 0 8px 19px -6px #00000073;
+    .from-div {
+      text-align: center;
+      position: relative;
+      margin-top: 5%;
+      padding: 0px 16px;
+      .proinm{
+        width: 9%;
+        position: relative;
+        float: left;
+        left: 20%;
+      }
+      span{
+        position: relative;
+        font-size: 13px;        
+        top: 4px;
+      }
+    }
+}
+.imh{
+    width: 100%;
+    height: 71%;
+}
+.lbl{
+    position: relative;
+    top: 7px;
+    font-weight: bold;
+    font-size: 22px;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+.lbl2{
+    position: relative;
+    top: 4px;
+    font-size: 13px;
+    color: gray;
+}
+.namediv {
+  span{
+      position: relative;
+      font-size: 15px;
+      left: 2%;        
+      font-family:Tahoma, Geneva, sans-serif;
+  }
+}
+
+.avatar-div {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #d2cdcd;
+  position: relative;
+  float: right;
+
+  ion-img {
+    width: 100%;
+    
+    img {
+      --width: 100px;
+      --height: 100px;        
+      --border-radius: 50%;
+      --border: 1px solid red;
+    }
+  }
+}
+ 
+ .switch input {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  /**
+   * 1. Adjust this to size
+   */
+  
+  .switch {
+    display: inline-block;
+    font-size: 20px;
+    height: 43px;
+    width: 86%;
+    // position: absolute;
+    border-radius: 6em;
+    // margin-left: 9px;
+    background: #fcba7d;
+    margin-top: 5px;
+  }  
+  .male{
+    position: relative;
+    top: 6px;
+    left: -8%;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+  }
+  .female{
+    position: relative;
+    top: 8px;
+    right: -9%;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+.vvv{
+    font-weight: bold;
+    margin-left: 20px;
+    text-align: left;
+}
+.msg-div {
+  font-weight: bold;
+  margin-left: 11px;  
+}
+.msgbox{
+    width: 100%;
+    height: 85px;
+    background: #f1f1f1;
+    border-radius: 27px;
+    border-top-left-radius: 0px;
+    margin-top: 5px;
+    padding: 13px;
+    font-size: 12px;
+}
+ion-button {
+  width: 77%;
+  --border-radius: 9px;
+  --background: #5162f5 !important;
+  text-transform: none;
+}
+// .back{    
+//   top: 20px;    
+// }
+// .text-b{    
+//   top: 22px;
+// }

@@ -1,0 +1,58 @@
+.edit{
+    font-size:24px;
+    font-weight:bold;
+    font-family:Tahoma, Geneva, sans-serif;
+    margin-top: -5px;
+}
+.txt{
+    font-size: 14px;
+    margin-left: 18%;    
+}
+.add{
+    font-size: 16px;
+    font-weight: bold;
+    color: gray;
+}
+.price{
+    margin-top: 13px;
+}
+.inp{
+    border-bottom: 2px solid #ededed;
+    width: 94%;
+    --padding-bottom: 2px !important;
+    --padding-top: 5px !important;
+}
+.profbtn{
+    width: 85%;
+    height: 45px;
+    border: 3px solid #e8e8e8;
+    background: none;
+    border-radius: 13px;
+    margin-top: 0px;    
+}
+.hh{
+    border:  3px solid #fcba7d;
+    background: #fcba7d;
+    color: #fff
+}
+ion-label {
+    font-size: 14px;
+}
+.contact-btn {
+    font-size: 11px;
+    --background: #e6e5e5;
+    color: black;
+    text-transform: none;
+    width: 100%;
+    height: 25px;
+}
+.code-btn {
+    color: black;
+    text-transform: none;
+    --border-color: gray;
+    --border-width: 1px;
+    height: 29px;
+    width: 100%;
+    --padding-end: 0;
+    --padding-start: 0;
+}

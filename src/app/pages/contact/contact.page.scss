@@ -1,0 +1,31 @@
+.unmae{
+  font-size: 14px;
+  margin-top: 3%;
+  margin-left: 6%;
+  text-align: left;
+}
+.inp{
+  border-bottom:2px solid #ededed;
+  margin-top: 2px;
+  width:90%;
+  margin-left: 5%;
+  --padding-bottom:2px !important;
+}
+.inplong{
+  width:90%;
+  padding-left: 10px !important;
+}
+h4 {
+  font-size: 20px;
+  text-align: center;
+  color: gray;
+  margin: 0;
+}
+.btn {
+  width: 70%;
+  height: 37px;
+  --border-radius: 9px;
+  --background: #5162f5;
+  font-size: 16px;
+  text-transform: none;
+}

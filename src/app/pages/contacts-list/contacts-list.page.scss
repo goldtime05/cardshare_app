@@ -1,0 +1,40 @@
+.search-item {
+  margin-top: 10%;
+  margin-bottom: 3%;
+}
+ion-list {
+  height: 85%;
+  overflow: scroll;
+  margin-bottom: 0px;
+}
+.glassimg{
+  position: relative;
+  z-index: 10000;
+  left: 25px;
+  top: 8px;
+  font-size: 20px;
+}
+.inmp{
+  top:5px;
+  position: absolute;
+  border: none;
+  background: #efefef;
+  height: 34px;
+  border-radius: 10px;
+  width: 90%;
+  margin-left: 15px !important;
+  left: 0;
+  text-align: center;
+}
+ion-footer {
+  border-top: none;
+  ion-button {
+    --background: #dcdada;
+    height: 36px;
+    width: 40%;
+    text-transform: none;
+  }
+}
+.footer-md:before, .footer-ios:before {
+  background: none;
+}

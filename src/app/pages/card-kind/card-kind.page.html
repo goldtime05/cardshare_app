@@ -1,0 +1,21 @@
+<ion-header style="height: 92px;">
+  <ion-toolbar style="height: 92px;">
+    <ion-icon (click)="goBack()" class="back" name="arrow-back" style="z-index: 10;padding-top: 24px;"></ion-icon>
+    <span (click)="goBack()" style="padding-top: 24px;" class="back text-b">Back</span>
+    <ion-title style="padding-top: 28px;"class="ion-text-center">{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-row style="width: 100%">
+      <ion-col size="6" *ngFor="let pro of cardArray" (click)="price(pro)">            
+        <div class="checks">
+          <img class="carimg" src="{{pro.image}}">
+          <h1>{{pro.sub_cat_name}}</h1>
+          <p>{{pro.amount | currency:'$'}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
